@@ -372,7 +372,7 @@ jobs:
         working-directory: test/spark
         run: docker-compose logs --tail=1000 lakefs
   metadata-client-spark3:
-    name: Test lakeFS with Spark 3.x
+    name: Test lakeFS metadata client with Spark 3.x
     needs: deploy-image
     runs-on: ubuntu-20.04
     env:
@@ -428,7 +428,7 @@ jobs:
         env:
           STORAGE_NAMESPACE: s3://nessie-system-testing/${{ github.run_number }}-spark-client
           REPOSITORY: test-data
-          CLIENT_JAR: sonnets-246/target/sonnets-246/scala-2.11/sonnets-246_2.11-0.1.0.jar
+          CLIENT_JAR: /target/lakefs-spark-client-301-assembly.jar
         working-directory: test/spark
         run: ./run-client-test.sh
 
@@ -498,7 +498,7 @@ jobs:
         env:
           STORAGE_NAMESPACE: s3://nessie-system-testing/${{ github.run_number }}-spark-client
           REPOSITORY: test-data
-          CLIENT_JAR: target/lakefs-spark-client-247-assembly.jar
+          CLIENT_JAR: /target/lakefs-spark-client-247-assembly.jar
         working-directory: test/spark
         run: ./run-client-test.sh
 
