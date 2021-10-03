@@ -390,10 +390,6 @@ jobs:
         working-directory: clients/spark
         run: sbt lakefs-spark-client-301/assembly
 
-      - name: Move to target
-        working-directory: clients/spark
-        run: mv target/core-301/scala-2.12/lakefs-spark-client-301-assembly* ./target/lakefs-spark-client-301-assembly.jar
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -428,7 +424,7 @@ jobs:
         env:
           STORAGE_NAMESPACE: s3://nessie-system-testing/${{ github.run_number }}-spark-client
           REPOSITORY: test-data
-          CLIENT_JAR: /target/lakefs-spark-client-301-assembly.jar
+          CLIENT_JAR: /target/core-301/scala-2.12/lakefs-spark-client-301-assembly*.jar
           EXPORT_LOCATION: s3://nessie-system-testing/${{ github.run_number }}-spark-client-export
         working-directory: test/spark
         run: ./run-client-test.sh
@@ -457,10 +453,6 @@ jobs:
       - name: Package Metaclient
         working-directory: clients/spark
         run: sbt lakefs-spark-client-247/assembly
-
-      - name: Move to target
-        working-directory: clients/spark
-        run: mv target/core-247/scala-2.11/lakefs-spark-client-247-assembly* ./target/lakefs-spark-client-247-assembly.jar
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -499,7 +491,7 @@ jobs:
         env:
           STORAGE_NAMESPACE: s3://nessie-system-testing/${{ github.run_number }}-spark-client
           REPOSITORY: test-data
-          CLIENT_JAR: /target/lakefs-spark-client-247-assembly.jar
+          CLIENT_JAR: /target/core-247/scala-2.11/lakefs-spark-client-247-assembly*.jar
           EXPORT_LOCATION: s3://nessie-system-testing/${{ github.run_number }}-spark-client-export
         working-directory: test/spark
         run: ./run-client-test.sh

@@ -81,6 +81,7 @@ services:
       replicas: 3
     extra_hosts:
       - "s3.docker.lakefs.io:10.5.0.55"
+      - "docker.lakefs.io:10.5.0.55"
       - "example.s3.docker.lakefs.io:10.5.0.55"
       - "gateway-test.s3.docker.lakefs.io:10.5.0.55"
       - "thick-client-test.s3.docker.lakefs.io:10.5.0.55"
@@ -97,6 +98,7 @@ services:
       - s3input
       - s3output
       - LAKEFS_BLOCKSTORE_S3_CREDENTIALS_ACCESS_KEY_ID
+      - CLIENT_JAR
       - EXPORT_LOCATION
       - LAKEFS_BLOCKSTORE_S3_CREDENTIALS_SECRET_ACCESS_KEY
       - AWS_ACCESS_KEY_ID
