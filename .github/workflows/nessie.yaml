@@ -429,6 +429,7 @@ jobs:
           STORAGE_NAMESPACE: s3://nessie-system-testing/${{ github.run_number }}-spark-client
           REPOSITORY: test-data
           CLIENT_JAR: /target/lakefs-spark-client-301-assembly.jar
+          EXPORT_LOCATION: s3://nessie-system-testing/${{ github.run_number }}-spark-client-export
         working-directory: test/spark
         run: ./run-client-test.sh
 
@@ -499,6 +500,7 @@ jobs:
           STORAGE_NAMESPACE: s3://nessie-system-testing/${{ github.run_number }}-spark-client
           REPOSITORY: test-data
           CLIENT_JAR: /target/lakefs-spark-client-247-assembly.jar
+          EXPORT_LOCATION: s3://nessie-system-testing/${{ github.run_number }}-spark-client-export
         working-directory: test/spark
         run: ./run-client-test.sh
 
