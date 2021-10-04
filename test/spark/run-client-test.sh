@@ -25,18 +25,7 @@ if ! docker-compose exec -T lakefs lakectl fs cat lakefs://test-data/697297df0c0
   echo expected file commit-ten to exist
   exit 1
 fi
-if ! docker-compose exec -T lakefs lakectl fs cat lakefs://test-data/445940036f2135b/commits/commit-nine > /dev/null ; then
-  echo expected file commit-nine to exist
-  exit 1
-fi
-if ! docker-compose exec -T lakefs lakectl fs cat lakefs://test-data/c5d9f3a7d850833/commits/commit-eight > /dev/null ; then
-  echo expected file commit-eight to exist
-  exit 1
-fi
-if ! docker-compose exec -T lakefs lakectl fs cat lakefs://test-data/46c9a9dfcd89c07/commits/commit-six > /dev/null ; then
-  echo expected file commit-six to exist
-  exit 1
-fi
+
 if ! docker-compose exec -T lakefs lakectl fs cat lakefs://test-data/651a755f7f5b1a4/commits/commit-three > /dev/null ; then
   echo expected file commit-three to exist
   exit 1
