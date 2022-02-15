@@ -4,7 +4,7 @@ on:
     branches: test/workflow
 
 jobs:
-  Explore-GitHub-Actions:
+  test-job-1:
     runs-on: ubuntu-latest
     environment: my_test
     steps:
@@ -20,3 +20,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  test-job-2:
+    needs: test-job-1 
+    runs-on: ubuntu-latest
+    environment: my_test
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
