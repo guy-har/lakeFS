@@ -30,6 +30,9 @@ export const AuthLayout = ({ children, activeTab }) => {
                                 <hr/>
 
                                 <Nav variant="pills" className="flex-column">
+                                    <Link component={Nav.Link} href="/auth/billing" active={activeTab === 'billing'}>
+                                        Billing
+                                    </Link>
                                     <Link component={Nav.Link} href="/auth/users" active={activeTab === 'users'}>
                                        Users
                                     </Link>
